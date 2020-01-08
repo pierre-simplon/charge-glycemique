@@ -1,0 +1,31 @@
+<div>
+    <h1>
+        Definition des portions
+    </h1>
+    <h2>
+        Aliment
+    </h2>
+</div>
+<div>    
+    <h1>
+        Liste des portions ajoutées
+    </h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>Nom de l'aliment</td>
+                <td>Index glycémique</td>
+                <td>Proportion de glucides (g) </td>
+                <td>Charge glycémique calculée </td>
+                <td>Supprimer</td>
+            </tr>
+            <tr *ngFor="let aliment of addedAliments">
+                <td>{{aliment.name}}</td>
+                <td>{{aliment.ig}}</td>
+                <td>{{aliment.carbs}}</td>
+                <td>12</td>
+                <td><button (click)="delete()">Supprimer</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

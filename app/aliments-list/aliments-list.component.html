@@ -1,0 +1,29 @@
+<div>
+    <h1>
+        Formulaire d'ajout
+    </h1>
+    <button id="addButton">
+        Ajouter
+    </button>
+</div>
+<div>    
+    <h1>
+        Liste des aliments enregistrés
+    </h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>Nom de l'aliment</td>
+                <td>Index glycémique</td>
+                <td>Proportion de glucides (g/100g) </td>
+                <td>Supprimer</td>
+            </tr>
+            <tr *ngFor="let aliment of myAliments">
+                <td>{{aliment.name}}</td>
+                <td>{{aliment.ig}}</td>
+                <td>{{aliment.carbs}}</td>
+                <td><button (click)="delete(aliment)">Supprimer</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

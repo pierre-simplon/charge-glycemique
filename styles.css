@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: rgb(65, 45, 45);
+}
+
+div{
+    background-color:rgb(97, 51, 8);
+    color: whitesmoke;
+}
+
+table,th, td{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 2px solid rgb(194, 166, 10);
+}
+
+h1,h2{
+    text-align: center;
+}
+
