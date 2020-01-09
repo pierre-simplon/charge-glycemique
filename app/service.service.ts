@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Aliment } from './interfaces';
 
+
+
 @Injectable()
 export class ServiceService {
 

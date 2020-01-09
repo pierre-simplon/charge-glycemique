@@ -2,9 +2,32 @@
     <h1>
         Formulaire d'ajout
     </h1>
-    <button id="addButton">
-        Ajouter
-    </button>
+    <form [formGroup]="alimentForm" (ngSubmit)="onNewAliment(alimentForm.value)">
+
+        <div>
+            <label for="name">
+              Nom de l'aliment
+            </label>
+            <input id="name" type="text" formControlName="name">
+          </div>
+        
+        <div>
+          <label for="ig">
+              Index glycémique
+          </label>
+          <input id="ig" type="number" formControlName="ig">
+        </div>  
+
+          <div>
+            <label for="ig">
+              Proportion de glucides
+            </label>
+            <input id="carbs" type="number" formControlName="carbs">
+          </div>
+
+        <button class="button" type="submit" id="addButton">Ajouter</button>
+      
+    </form>
 </div>
 <div>    
     <h1>

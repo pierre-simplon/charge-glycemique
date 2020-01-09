@@ -8,6 +8,13 @@ div{
     color: whitesmoke;
 }
 
+form{
+    flex: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 table,th, td{
     justify-content: center;
     margin-left: auto;
