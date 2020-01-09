@@ -2,11 +2,31 @@
     <h1>
         Definition des portions
     </h1>
-    <h2>
-        Aliment
-    </h2>
+    <form [formGroup]="portionForm" (ngSubmit)="onNewPortion(portionForm.value)">
+ <!--       <div>
+            <select for="name" FormControlName="name">
+                <option value="" disabled>Choisisez un aliment</option>
+                <option *ngFor="let aliment of myAliments" value={{aliment.name}}>{{aliment.name}}</option>
+            </select>
+        </div> -->
+        <div>
+            <label for="name">
+                Nom
+            </label>
+            <input id="portionWeight" type="text" formControlName="name">
+          </div>  
+
+        <div>
+          <label for="ig">
+              Portion (g)
+          </label>
+          <input id="portionWeight" type="number" formControlName="weight">
+        </div>  
+        <button class="button" type="submit" id="addPortion">Ajouter</button>
+    </form>
 </div>
 <div>    
+    <h1>Charge totale: </h1>
     <h1>
         Liste des portions ajoutées
     </h1>
@@ -19,11 +39,11 @@
                 <td>Charge glycémique calculée </td>
                 <td>Supprimer</td>
             </tr>
-            <tr *ngFor="let aliment of addedAliments">
-                <td>{{aliment.name}}</td>
-                <td>{{aliment.ig}}</td>
-                <td>{{aliment.carbs}}</td>
-                <td>12</td>
+            <tr *ngFor="let portion of portionArray">
+                <td>{{portion.name}}</td>
+                <td>{{10}}</td>
+                <td>{{portion.weight}}</td>
+                <td>{{portion.calculatedIG}}</td>
                 <td><button (click)="delete()">Supprimer</button></td>
             </tr>
         </tbody>

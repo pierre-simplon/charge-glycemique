@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Aliment } from './interfaces';
+import { Portion } from './interface-portion';
 
 
 

@@ -3,3 +3,5 @@ export interface Aliment{
     ig: number;
     carbs: number;
 }
+
+
