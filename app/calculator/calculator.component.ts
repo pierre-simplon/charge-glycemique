@@ -44,5 +44,9 @@ export class CalculatorComponent implements OnInit {
     this.portionArray.push({name: portion.name,weight: portion.weight, calculatedIG: this.myAliments.find(aliment => aliment.name == portion.name).ig});
   }
 
+  delete(portion){
+    this.portionArray.splice(this.portionArray.indexOf(portion),1);
+  }
+
 
 }
