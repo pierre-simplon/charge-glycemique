@@ -13,7 +13,6 @@ import { PortionServiceService } from '../portion-service.service';
 })
 export class CalculatorComponent implements OnInit {
   portionForm;
-  Portion={name:'',weight:0,calculatedIG:0};
   myAliments=this.serviceService.myAliments;
   portionArray=this.portionService.portionArray;
 
@@ -41,7 +40,10 @@ export class CalculatorComponent implements OnInit {
     this.Portion.weight=portion.weight;
 
     console.log("Le tableau des portions: "+this.portionArray); */
-    this.portionArray.push({name: portion.name,weight: portion.weight, calculatedIG: this.myAliments.find(aliment => aliment.name == portion.name).ig});
+    this.portionArray.push({name: portion.name,
+      weight: portion.weight,
+      calculatedIG: this.myAliments.find(aliment => aliment.name == portion.name).ig,
+    glucide:Math.round(this.myAliments.find(aliment => aliment.name == portion.name).ig*portion.weight)/100});
   }
 
   delete(portion){

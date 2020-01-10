@@ -41,9 +41,9 @@
             </tr>
             <tr *ngFor="let portion of portionArray">
                 <td>{{portion.name}}</td>
-                <td>{{10}}</td>
-                <td>{{portion.weight}}</td>
                 <td>{{portion.calculatedIG}}</td>
+                <td>{{portion.weight}}</td>
+                <td>{{portion.glucide}}</td>
                 <td><button (click)="delete(portion)">Supprimer</button></td>
             </tr>
         </tbody>
