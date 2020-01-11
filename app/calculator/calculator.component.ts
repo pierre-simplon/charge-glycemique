@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ServiceService} from '../service.service';
 import { PortionServiceService } from '../portion-service.service';
+import { Portion } from '../interface-portion';
 
 
 
@@ -13,6 +14,7 @@ import { PortionServiceService } from '../portion-service.service';
 })
 export class CalculatorComponent implements OnInit {
   portionForm;
+  totalGlucide=0;
   myAliments=this.serviceService.myAliments;
   portionArray=this.portionService.portionArray;
 
@@ -23,31 +25,34 @@ export class CalculatorComponent implements OnInit {
       name: '',
       weight: ''
     });
-    this.portionArray=[]
    }
 
   ngOnInit() {
   }
 
   onNewPortion(portion){
-  /*  console.log("Nom de la portion: "+portion.name);
-    this.Portion.name=portion.name;
+    console.log("La portion: "+portion);
+    console.log("Nom de la portion: "+portion.name);
 
     console.log("l'IG de l'aliment de la portion: "+this.myAliments.find(aliment => aliment.name == portion.name).ig);
-    this.Portion.calculatedIG=portion.weight*this.myAliments.find(aliment => aliment.name == portion.name).ig/100;
 
     console.log("Poids de la portion"+portion.weight);
-    this.Portion.weight=portion.weight;
 
-    console.log("Le tableau des portions: "+this.portionArray); */
-    this.portionArray.push({name: portion.name,
+    console.log("Le tableau des portions: "+this.portionArray); 
+    let portionCalculatedGlucide:number = Math.round(this.myAliments.find(aliment => aliment.name == portion.name).ig*portion.weight)/100;
+    let portionToStore : Portion = {name: portion.name,
       weight: portion.weight,
       calculatedIG: this.myAliments.find(aliment => aliment.name == portion.name).ig,
-    glucide:Math.round(this.myAliments.find(aliment => aliment.name == portion.name).ig*portion.weight)/100});
+      glucide: portionCalculatedGlucide}
+    this.portionArray.push(portionToStore);
+/*      glucide:Math.round(this.myAliments.find(aliment => aliment.name == portion.name).ig*portion.weight)/100}); */
+    this.totalGlucide=this.totalGlucide+portionCalculatedGlucide;
   }
 
   delete(portion){
     this.portionArray.splice(this.portionArray.indexOf(portion),1);
+    let portionCalculatedGlucide:number = Math.round(this.myAliments.find(aliment => aliment.name == portion.name).ig*portion.weight)/100;
+    this.totalGlucide=this.totalGlucide-portionCalculatedGlucide;
   }
 
 
