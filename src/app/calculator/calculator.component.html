@@ -4,22 +4,18 @@
     </h1>
 
     <form [formGroup]="portionForm" (ngSubmit)="onNewPortion(portionForm.value)">
-            <div>
-               <select for="name" formControlName="name">
-                    <option value="" disabled>Choisissez un aliment</option>
-                    <option *ngFor="let aliment of myAliments;let i=index" [value]="aliment.name"> {{ aliment.name }} </option>
-                </select>
-            </div>
+        <div>
+          <select for="name" formControlName="name">
+            <option value="" disabled>Choisissez un aliment</option>
+            <option *ngFor="let aliment of myAliments" [value]="aliment.name"> {{ aliment.name }} </option>
+          </select>
+        </div>
         <div>
           <label for="weight">
               Portion (g)
           </label>
-          <input id="portionWeight" type="number" formControlName="weight">
+          <input id="portionWeight" type="number"  min="1" formControlName="weight">
         </div>  
-        <div>
-            {{ aliment | json }}
-        </div>
-
         <button class="button" type="submit" id="addPortion">Ajouter</button>
     </form> 
 </div>

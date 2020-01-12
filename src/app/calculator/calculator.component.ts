@@ -42,7 +42,7 @@ export class CalculatorComponent implements OnInit {
     
       this.portionArray.push(portionToStore);
 
-      this.totalGlucide=this.totalGlucide+portionCalculatedGlucide;
+      this.totalGlucide=Math.round((this.totalGlucide+portionCalculatedGlucide)*100)/100;
       }      
   }
 
