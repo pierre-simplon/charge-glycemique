@@ -19,8 +19,8 @@ export class AlimentsListComponent implements OnInit {
     private serviceService: ServiceService,
     private formBuilder: FormBuilder) {
       this.alimentForm = this.formBuilder.group({
-        ig: '',
-        carbs: '',
+        ig: 0,
+        carbs: 0,
         name: ''
       });
      }
@@ -33,6 +33,6 @@ export class AlimentsListComponent implements OnInit {
   }
 
   onNewAliment(aliment){
-    this.myAliments.unshift(aliment);
+    if (aliment.name!='' && aliment.carbs!=0 && aliment.ig!=0) this.myAliments.unshift(aliment);
   }
 }
