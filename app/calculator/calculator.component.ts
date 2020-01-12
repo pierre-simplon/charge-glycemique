@@ -15,7 +15,7 @@ import { Portion } from '../interface-portion';
 export class CalculatorComponent implements OnInit {
   portionForm: FormGroup;
   totalGlucide=0;
-  myAliments=this.serviceService.myAliments;
+  myAliments=this.serviceService.myAliments.sort((a,b) =>  a.name.localeCompare(b.name));
   portionArray=this.portionService.portionArray;
 
   constructor(private formBuilder: FormBuilder,
@@ -30,18 +30,20 @@ export class CalculatorComponent implements OnInit {
   }
 
   onNewPortion(portion){
-    
-    let portionCalculatedGlucide:number = Math.round(this.myAliments.find(aliment => aliment.name == portion.name).ig*portion.weight)/100;
-    
-    let portionToStore : Portion = {
-      name: portion.name,
-      weight: portion.weight,
-      calculatedIG: this.myAliments.find(aliment => aliment.name == portion.name).ig,
-      glucide: portionCalculatedGlucide}
-    
-    this.portionArray.push(portionToStore);
+    if (portion.name!='' && portion.weight!=0) {
 
-    this.totalGlucide=this.totalGlucide+portionCalculatedGlucide;
+      let portionCalculatedGlucide:number = Math.round(this.myAliments.find(aliment => aliment.name == portion.name).ig*portion.weight)/100;
+    
+      let portionToStore : Portion = {
+        name: portion.name,
+        weight: portion.weight,
+        calculatedIG: this.myAliments.find(aliment => aliment.name == portion.name).ig,
+        glucide: portionCalculatedGlucide}
+    
+      this.portionArray.push(portionToStore);
+
+      this.totalGlucide=this.totalGlucide+portionCalculatedGlucide;
+      }      
   }
 
   delete(portion){

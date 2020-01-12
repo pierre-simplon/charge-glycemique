@@ -5,9 +5,8 @@
 
     <form [formGroup]="portionForm" (ngSubmit)="onNewPortion(portionForm.value)">
             <div>
-               <label for="name">Select name</label>
                <select for="name" formControlName="name">
-                    <option value="" disabled>Choisisez un aliment</option>
+                    <option value="" disabled>Choisissez un aliment</option>
                     <option *ngFor="let aliment of myAliments;let i=index" [value]="aliment.name"> {{ aliment.name }} </option>
                 </select>
             </div>
