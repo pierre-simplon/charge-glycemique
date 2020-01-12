@@ -33,6 +33,6 @@ export class AlimentsListComponent implements OnInit {
   }
 
   onNewAliment(aliment){
-    if (aliment.name!='' && aliment.carbs!=0 && aliment.ig!=0) this.myAliments.unshift(aliment);
+    if (aliment.name!='' && aliment.carbs>=0 && aliment.ig>=0) this.myAliments.unshift(aliment);
   }
 }

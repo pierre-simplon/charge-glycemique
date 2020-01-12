@@ -15,14 +15,14 @@
           <label for="ig">
               Index glycémique
           </label>
-          <input id="ig" type="number" min="1" formControlName="ig">
+          <input id="ig" type="number" min="0" max="200" formControlName="ig">
         </div>  
 
           <div>
             <label for="ig">
               Proportion de glucides
             </label>
-            <input id="carbs" type="number" min="1" formControlName="carbs">
+            <input id="carbs" type="number" min="0" max="100" formControlName="carbs">
           </div>
 
         <button class="button" type="submit" id="addButton">Ajouter</button>
